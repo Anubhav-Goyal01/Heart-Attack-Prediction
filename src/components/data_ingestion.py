@@ -25,7 +25,10 @@ class DataIngestion:
             logging.info("Running data ingestion component")
             data = pd.read_csv('Data/heart.csv')
             logging.info("Dataset read successfully")
+
             
+            cat_columns = ['sex', 'cp', 'fbs', 'restecg', 'exng', 'slp', 'caa', 'thall', 'output']
+            data[cat_columns] = data[cat_columns].astype(str)
 
             split = StratifiedShuffleSplit(n_splits= 1, test_size= 0.2, random_state=42)
 
