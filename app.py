@@ -21,10 +21,11 @@ def predict():
     else:
         data = CustomData(
             age = int(request.form.get('age')),
+            sex = request.form.get('sex'),
             cp = request.form.get('cp'),
             trtbps = request.form.get('trtbps'),
             oldpeak= float(request.form.get('oldpeak')),
-            chol = int(request.form.get('chol,')),
+            chol = int(request.form.get('chol')),
             fbs = request.form.get('fbs'),
             restecg= request.form.get('restecg'),
             thall = request.form.get('thall'),
@@ -33,11 +34,10 @@ def predict():
             exng = request.form.get('exng'),
             caa = request.form.get('caa')
         )
-
         pred_df = data.get_data_as_data_frame()
         prediction_pipeline = PredictionPipeline()
-        results = prediction_pipeline.predict(pred_df)
-        result_string = f"Predicted chances of heart attack: {round(results[0], 2) * 100}%"
+        results = list(prediction_pipeline.predict(pred_df)[0])
+        result_string = f"Predicted chances of heart attack: {round(results[1] * 100, 2)}%"
         return render_template('index.html',results= result_string)
 
 if __name__ == "__main__":

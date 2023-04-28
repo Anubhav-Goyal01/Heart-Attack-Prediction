@@ -39,18 +39,18 @@
 
                 <div>
                     <label class="form-label">Exercise Induced ST depression</label>
-                    <input class="form-control" type="number" name="oldpeak" placeholder="2.7" min='0' max='6.5' />
+                    <input class="form-control" type="text" name="oldpeak" placeholder="2.7" min='0' max='6.5' />
                 </div>
 
                 <div>
                     <label class="form-label">Gender</label>
-                    <select class="form-control" name="gender" required>
+                    <select class="form-control" name="sex" required>
                         <option class="placeholder" selected disabled value="">Choose your Gender</option>
-                        <option value="1">
-                            Male
-                        </option>
                         <option value="0">
                             Female
+                        </option>
+                        <option value="1">
+                            Male
                         </option>
                     </select>
                 </div>
@@ -112,7 +112,7 @@
 
                 <div>
                     <label class="form-label">Exercise Angina</label>
-                    <select class="form-control" name="exng " required>
+                    <select class="form-control" name="exng" required>
                         <option class="placeholder" selected disabled value="">Select appropriate option</option>
                         <option value="1">
                             Yes
@@ -172,7 +172,7 @@
                 </div>
             </div>
             <div class="btn-container">
-                <input class="btn btn-primary" type="submit" value="Predict House Rent" required />
+                <input class="btn btn-primary" type="submit" value="PREDICT" required />
             </div>
         </form>
         <div class="results-container">
