@@ -120,6 +120,9 @@ celerybeat.pid
 *.sage.py
 
 # Environments
+heartattackprediction
+artifacts
+catboost_info
 .env
 .venv
 env/

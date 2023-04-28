@@ -52,7 +52,6 @@ class ModelTrainer:
                     'depth': [6, 8, 10],
                     'learning_rate': [0.01, 0.05, 0.1],
                     'n_estimators' : [8, 16, 32, 64, 128, 256, 512],
-                    'iterations': [30, 50, 100]
                 },
 
                 "lightgbm":{
@@ -90,7 +89,7 @@ class ModelTrainer:
 
             predicted = best_model.predict(X_test)
             accuracyScore = accuracy_score(Y_test, predicted)
-            return accuracy_score
+            return accuracyScore
 
 
         except Exception as e:

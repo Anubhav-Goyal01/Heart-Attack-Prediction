@@ -42,7 +42,7 @@ class DataTransformation:
 
         try:
             log_scaling_columns = ['oldpeak', 'chol']
-            cat_columns = ['sex', 'cp', 'fbs', 'restecg', 'exng', 'slp', 'caa', 'thall', 'output']
+            cat_columns = ['sex', 'cp', 'fbs', 'restecg', 'exng', 'slp', 'caa', 'thall']
             num_columns = ['age', 'trtbps', 'thalachh']
 
 
@@ -80,13 +80,13 @@ class DataTransformation:
             train_df = pd.read_csv(train_path)
             test_df = pd.read_csv(test_path)
             logging.info("Data Read successfully")
-
+            print(train_df)
 
             logging.info("Obtaining preprocessing object")
             preprocess_object = self.get_data_transformer_object()
 
 
-            target_column_name = ['output_1']
+            target_column_name = 'output'
             X_train = train_df.drop(columns=[target_column_name], axis=1)
             y_train = train_df[target_column_name]
             X_test = test_df.drop(columns=[target_column_name], axis=1)

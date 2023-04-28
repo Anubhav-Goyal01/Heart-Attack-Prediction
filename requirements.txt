@@ -3,10 +3,8 @@ numpy
 scikit-learn
 matplotlib
 seaborn
-pickle
 catboost
 xgboost
 lightgbm
 flask
-pickle-mixin
 -e.
