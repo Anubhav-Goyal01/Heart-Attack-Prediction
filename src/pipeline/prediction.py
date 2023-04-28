@@ -18,7 +18,7 @@ class PredictionPipeline:
 
             data_preprocessed = preprocessor.transform(features)
 
-            preds = model.predict(data_preprocessed)
+            preds = model.predict_proba(data_preprocessed)
 
             return preds
         
