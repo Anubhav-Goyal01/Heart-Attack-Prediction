@@ -2,6 +2,7 @@
 
 This project aims to predict the chances of a person getting a heart attack or not based on certain features like Age, Gender, Maximum Heart rate reached, cholestrol levels, blood sugar levels, type of chest pain, etc.   The model has been trained on historical data 300 patients.
 
+
 ![Preview](/static/preview.png)
 
 ## File Structure
