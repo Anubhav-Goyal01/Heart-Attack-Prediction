@@ -1,0 +1,187 @@
+<html>
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Rubik:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="{{url_for('static', filename = 'styles.css')}}">
+</head>
+
+<body>
+    <div class="container">
+        <form action="{{ url_for('predict')}}" method="post">
+            <h1>
+                <legend>Heart attack prediction</legend>
+            </h1>
+            <div class="grid">
+
+                <div>
+                    <label class="form-label">Age</label>
+                    <input class="form-control" type="number" name="age" placeholder="41" min='30' max='80' />
+                </div>
+
+                <div>
+                    <label class="form-label">Resting Blood Pressure (in mm Hg)</label>
+                    <input class="form-control" type="number" name="trtbps" placeholder="150" min='90' max='200' />
+                </div>
+
+                <div>
+                    <label class="form-label">Cholestrol (in mg/dl)</label>
+                    <input class="form-control" type="number" name="chol" placeholder="200" min='120' max='560' />
+                </div>
+
+                <div>
+                    <label class="form-label">Maximum heart rate reached</label>
+                    <input class="form-control" type="number" name="thalachh" placeholder="134" min='70' max='205' />
+                </div>
+
+                <div>
+                    <label class="form-label">Exercise Induced ST depression</label>
+                    <input class="form-control" type="number" name="oldpeak" placeholder="2.7" min='0' max='6.5' />
+                </div>
+
+                <div>
+                    <label class="form-label">Gender</label>
+                    <select class="form-control" name="gender" required>
+                        <option class="placeholder" selected disabled value="">Choose your Gender</option>
+                        <option value="1">
+                            Male
+                        </option>
+                        <option value="0">
+                            Female
+                        </option>
+                    </select>
+                </div>
+                <div>
+                    <label class="form-label">Slope of Peak Exercise ST segment</label>
+                    <select class="form-control" name="slp" required>
+                        <option class="placeholder" selected disabled value="">Select appropriate slope</option>
+                        <option value="0">
+                            Unsloping
+                        </option>
+                        <option value="1">
+                            Flat
+                        </option>
+                        <option value="2">
+                            Downsloping
+                        </option>
+                    </select>
+                </div>
+                <div>
+                    <label class="form-label">Number of Major vessels</label>
+                    <select class="form-control" name="caa" required>
+                        <option class="placeholder" selected disabled value="">Choose number of major vessels</option>
+                        <option value="0">
+                            0
+                        </option>
+                        <option value="1">
+                            1
+                        </option>
+                        <option value="2">
+                            2
+                        </option>
+                        <option value="3">
+                            3
+                        </option>
+                        <option value="4">
+                            4
+                        </option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="form-label">Thalassemia</label>
+                    <select class="form-control" name="thall" required>
+                        <option class="placeholder" selected disabled value="">Choose appropriate response</option>
+                        <option value="0">
+                            Null
+                        </option>
+                        <option value="1">
+                            Fixed detect
+                        </option>
+                        <option value="2">
+                            Normal
+                        </option>
+                        <option value="3">
+                            Reversable defect
+                        </option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="form-label">Exercise Angina</label>
+                    <select class="form-control" name="exng " required>
+                        <option class="placeholder" selected disabled value="">Select appropriate option</option>
+                        <option value="1">
+                            Yes
+                        </option>
+                        <option value="0">
+                            No
+                        </option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="form-label">Blood Sugar</label>
+                    <select class="form-control" name="fbs" required>
+                        <option class="placeholder" selected disabled value="">Choose blood sugar range</option>
+                        <option value="1">
+                            > 120 mg/dl
+                        </option>
+                        <option value="0">
+                            < 120 mg/dl
+                        </option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="form-label"> Electrocardiographic results</label>
+                    <select class="form-control" name="restecg" required>
+                        <option class="placeholder" selected disabled value="">Select appropriate result</option>
+                        <option value="0">
+                            Normal
+                        </option>
+                        <option value="1">
+                            ST-T wave abnormality
+                        </option>
+                        <option value="2">
+                            Left ventricular hypertrophy
+                        </option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="form-label">Chest pain type</label>
+                    <select class="form-control" name="cp" required>
+                        <option class="placeholder" selected disabled value="">Select chest pain type</option>
+                        <option value="1">
+                            Typical angina
+                        </option>
+                        <option value="2">
+                            Atypical angina
+                        </option>
+                        <option value="3">
+                            non-anginal pain
+                        </option>
+                        <option value="4">
+                            Asymptomatic
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="btn-container">
+                <input class="btn btn-primary" type="submit" value="Predict House Rent" required />
+            </div>
+        </form>
+        <div class="results-container">
+            <h2 class="results">
+                {{results}}
+            </h2>
+        </div>
+    </div>
+
+    <body>
+
+</html>
